@@ -1,0 +1,51 @@
+{
+  "name": "fileflow",
+  "version": "1.0.0",
+  "description": "A modern, client-side file processing web application for compressing, converting, and resizing files",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000",
+    "dev": "http-server -p 8000 -o",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "gh-pages -d .",
+    "lint": "eslint script.js",
+    "format": "prettier --write *.js *.css *.html *.md"
+  },
+  "keywords": [
+    "file-processing",
+    "image-compression",
+    "file-conversion",
+    "client-side",
+    "javascript",
+    "html5",
+    "css3",
+    "web-app",
+    "image-resize",
+    "file-transform"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/fileflow.git"
+  },
+  "homepage": "https://your-username.github.io/fileflow",
+  "bugs": {
+    "url": "https://github.com/your-username/fileflow/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "gh-pages": "^4.0.0",
+    "http-server": "^14.0.0",
+    "prettier": "^2.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
