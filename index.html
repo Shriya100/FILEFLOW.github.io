@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileFlow - Transform Your Files Instantly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>FileFlow</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your Files <span class="gradient-text">Instantly</span></h1>
+                <p class="hero-subtitle">Compress images, convert documents to PDF, and transform JPGs with ease. Your all-in-one file processing solution.</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="scrollToUpload()">
+                        <i class="fas fa-upload"></i>
+                        Start Processing
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </button>
+                </div>
+
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Images</h3>
+                        <p>Convert & compress images</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>PDFs</h3>
+                        <p>Create and optimize PDFs</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-compress"></i>
+                        </div>
+                        <h3>Compress</h3>
+                        <p>Reduce file sizes efficiently</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="container">
+                <h2 class="section-title">Upload Your File</h2>
+                <p class="section-subtitle">Choose your file and select what you'd like to do with it</p>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Drag & Drop Your File Here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx" multiple>
+                </div>
+
+                <div class="processing-options" id="processingOptions" style="display: none;">
+                    <h3>Choose Processing Option:</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn" data-action="compress">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            Compress
+                        </button>
+                        <button class="option-btn" data-action="convert">
+                            <i class="fas fa-exchange-alt"></i>
+                            Convert
+                        </button>
+                        <button class="option-btn" data-action="resize">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            Resize
+                        </button>
+                    </div>
+                </div>
+
+                <div class="file-preview" id="filePreview"></div>
+                
+                <div class="conversion-controls" id="conversionControls" style="display: none;">
+                    <div class="control-group">
+                        <label for="outputFormat">Output Format:</label>
+                        <select id="outputFormat">
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                            <option value="pdf">PDF</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="quality">Quality:</label>
+                        <input type="range" id="quality" min="10" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="width">Width:</label>
+                        <input type="number" id="width" placeholder="Auto">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="height">Height:</label>
+                        <input type="number" id="height" placeholder="Auto">
+                    </div>
+                    
+                    <button class="btn btn-primary" id="processBtn">
+                        <i class="fas fa-cog"></i>
+                        Process File
+                    </button>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <div class="download-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>File Processed Successfully!</h3>
+                        <button class="btn btn-success" id="downloadBtn">
+                            <i class="fas fa-download"></i>
+                            Download File
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Powerful Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-lightning-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Process files in seconds with our optimized algorithms</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>All processing happens locally in your browser</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Works perfectly on all devices and screen sizes</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-file-image"></i>
+                        </div>
+                        <h3>Multiple Formats</h3>
+                        <p>Support for JPEG, PNG, WebP, PDF and more</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About FileFlow</h2>
+                <p class="about-text">
+                    FileFlow is a modern, client-side file processing tool that helps you compress, convert, and transform your files without uploading them to any server. Everything happens securely in your browser, ensuring your privacy and data security.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>FileFlow</span>
+                </div>
+                <p>&copy; 2025 FileFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
